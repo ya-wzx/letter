@@ -1,0 +1,47 @@
+Git全局配置和单个仓库的用户名邮箱配置
+
+学习git的时候, 大家刚开始使用之前都配置了一个全局的用户名和邮箱
+$ git config --global user.name “github’s Name”
+$ git config --global user.email "github@xx.com"
+$ git config --list
+如果你公司的项目是放在自建的gitlab上面, 如果你不进行配置用户名和邮箱的话, 则会使用全局的, 这个时候是错误的, 正确的做法是针对公司的项目, 在项目根目录下进行单独配置
+
+$ git config user.name “gitlab’s Name”
+$ git config user.email "gitlab@xx.com"
+$ git config --list
+git config --list查看当前配置, 在当前项目下面查看的配置是全局配置+当前项目的配置, 使用的时候会优先使用当前项目的配置
+
+
+git commit -v 产看本地是否连接仓库
+git commit rm xxx  删除
+git checkout README.md   进入当前选中目录
+
+
+
+git --version 版本查询
+git update-git-for-windows   版本更新
+
+
+
+
+个人操作流程  mkdir wzx                             
+	      cd wzx
+	      git init                                                         //初始化
+	      echo "ssss" >> README.md	         //增添内容到 README.md
+	      git add README.md		         //增添
+	      git commit -m "注释"                                 //注释
+	      git remote add origin xxxxxxxxxx	                         //连接仓库
+	      git push -u orgin master		         //提交master
+
+新员工流程    git clone 服务器地址                                     //获取
+	     git breanch                                                  //查看分支
+	     git checkout -b dev		         //创建自己的分支
+	     git add .                                                       //结合
+	     git commit -m "更新注释"
+	     git push orgin dev                                       //提交自己的分支dev
+
+整合流程       git breanch
+	    git checkout master                                      //选择已有的分支
+	    git pull orgin master                                     //下载分支
+	    git merge dev  			         //覆盖更新分支
+	    git push orgin master	  	         //提交主分支
